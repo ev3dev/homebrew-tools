@@ -6,6 +6,11 @@ class Grx < Formula
     :revision => "2e1a89b01e2253c1a6183b7b8a93946909a54915"
   version "3.0.0"
 
+  bottle do
+    root_url "https://github.com/ev3dev/grx/releases/download/homebrew%2F3.0.0"
+    sha256 "33d4a6faa897883692daaf865ffe3cfe71dd123cef2f4fe542c510218871e206" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :run
   depends_on "jpeg"
