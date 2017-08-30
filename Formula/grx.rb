@@ -2,9 +2,7 @@ class Grx < Formula
   desc "GRX3 Graphics Library"
   homepage "https://github.com/ev3dev/grx/"
   url "https://github.com/ev3dev/grx.git",
-    :branch => "ev3dev-stretch",
-    :revision => "2e1a89b01e2253c1a6183b7b8a93946909a54915"
-  version "3.0.0"
+    :tag => "homebrew/3.0.0"
 
   bottle do
     root_url "https://github.com/ev3dev/grx/releases/download/homebrew%2F3.0.0"
