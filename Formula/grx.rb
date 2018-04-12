@@ -10,7 +10,7 @@ class Grx < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libxkbcommon" => :build
