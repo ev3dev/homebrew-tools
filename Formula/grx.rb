@@ -2,11 +2,11 @@ class Grx < Formula
   desc "GRX3 Graphics Library"
   homepage "https://github.com/ev3dev/grx/"
   url "https://github.com/ev3dev/grx.git",
-    :tag => "homebrew/3.0.0"
+    :tag => "homebrew/3.1.2"
 
   bottle do
-    root_url "https://github.com/ev3dev/grx/releases/download/homebrew%2F3.0.0"
-    sha256 "33d4a6faa897883692daaf865ffe3cfe71dd123cef2f4fe542c510218871e206" => :sierra
+    root_url "https://github.com/ev3dev/grx/releases/download/homebrew%2F3.1.2"
+    sha256 "fa9c6abf5ca23bbdfaa2467381357c9d677710b4f6649c7d0f4a0b88985c753d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,8 +20,14 @@ class Grx < Formula
   depends_on "python3" => :build
 
   def install
-    system "cmake", ".", "-DGRX_ENABLE_DOC=No", *std_cmake_args
-    system "make", "install"
+    cd "cmake" do
+      # work around weird bug that deltes all files in cmake/ subdirectory
+      system "git", "reset", "--hard"
+    end
+    mkdir "build" do
+      system "cmake", "..", "-DGRX_ENABLE_DOC=No", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
